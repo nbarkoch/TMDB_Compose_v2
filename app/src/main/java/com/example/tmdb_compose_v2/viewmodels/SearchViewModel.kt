@@ -39,12 +39,10 @@ class SearchViewModel: ViewModel() {
                 _searchResultsState.value = MoviesState(1, 0, emptyList())
                 return@launch
             }
-
-            _isSearching.value = true
-            if (page == 1) {
-                _searchResultsState.value = MoviesState(1, 0, emptyList())
+            if (page < _searchResultsState.value.page) {
+                return@launch
             }
-
+            _isSearching.value = true
             val response = try {
                 MoviesRetrofit.api.searchForMovie(query = query, page = page)
             } catch (e: IOException) {

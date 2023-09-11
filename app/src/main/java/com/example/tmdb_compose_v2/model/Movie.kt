@@ -14,7 +14,7 @@ data class Movie(
     val id: Int,
     val adult: Boolean,
     @SerializedName("backdrop_path")
-    val backdropPath: String,
+    val backdropPath: String?,
     @TypeConverters(IntListConverter::class)
     @SerializedName("genre_ids")
     val genreIds: List<Int>,
@@ -25,7 +25,7 @@ data class Movie(
     val overview: String,
     val popularity: Double,
     @SerializedName("poster_path")
-    val posterPath: String,
+    val posterPath: String?,
     @SerializedName("release_date")
     val releaseDate: String,
     val title: String,
