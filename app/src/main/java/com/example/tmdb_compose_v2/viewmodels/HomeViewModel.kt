@@ -33,6 +33,12 @@ class HomeViewModel : ViewModel() {
     private val _isLoadingTopRated = MutableStateFlow(false)
     val isLoadingTopRated = _isLoadingTopRated.asStateFlow()
 
+    init {
+        _topRatedMoviesState.value = MoviesState(1, 0, emptyList())
+        getTopRatedMovies()
+        _popularMoviesState.value = MoviesState(1, 0, emptyList())
+        getPopularMovies()
+    }
 
     fun getPopularMovies(page: Int = 1) {
         viewModelScope.launch {
@@ -91,17 +97,6 @@ class HomeViewModel : ViewModel() {
                 _errorMessage.value = "Unexpected Error Occurred\nTry again later.."
                 _isLoadingTopRated.value = false
             }
-        }
-    }
-
-    fun firstCall() {
-        if (topRatedMoviesState.value.movies.isEmpty()) {
-            _topRatedMoviesState.value = MoviesState(1, 0, emptyList())
-            getTopRatedMovies()
-        }
-        if (_popularMoviesState.value.movies.isEmpty()) {
-            _popularMoviesState.value = MoviesState(1, 0, emptyList())
-            getPopularMovies()
         }
     }
 

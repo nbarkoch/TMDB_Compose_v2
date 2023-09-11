@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
@@ -37,7 +37,7 @@ import com.example.tmdb_compose_v2.viewmodels.SearchViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchPage(navController: NavController) {
-    val viewModel = viewModel(modelClass = SearchViewModel::class.java)
+    val viewModel = hiltViewModel<SearchViewModel>()
     val searchText by viewModel.searchField.collectAsState()
     val isSearching by viewModel.isSearching.collectAsState()
     val searchResultsState by viewModel.searchResultsState.collectAsState()
