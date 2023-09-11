@@ -39,6 +39,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.tmdb_compose_v2.api.MoviesRetrofit.IMAGE_BASE_URL
 import com.example.tmdb_compose_v2.model.Movie
+import com.example.tmdb_compose_v2.ui.components.moviePreviewMock
 import com.example.tmdb_compose_v2.viewmodels.DetailsViewModel
 
 @Composable
@@ -148,5 +149,5 @@ fun DetailsScreen(
 @Composable
 @Preview
 fun DetailsScreenPreview() {
-
+    DetailsScreen(movie = moviePreviewMock)
 }

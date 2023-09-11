@@ -16,9 +16,6 @@ interface FavoriteMovieDao {
     @Delete
     suspend fun deleteMovie(movie: Movie)
 
-    @Query("SELECT * FROM movie LIMIT :pageSize OFFSET :offset")
-    suspend fun getMovies(pageSize: Int, offset: Int): List<Movie>
-
     @Query("SELECT * FROM movie")
     fun getAllMovies(): Flow<List<Movie>>
 

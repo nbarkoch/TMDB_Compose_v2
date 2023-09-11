@@ -16,14 +16,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
 import com.example.tmdb_compose_v2.navigation.navigateWithSerializable
-import com.example.tmdb_compose_v2.ui.components.CollectionPagableRow
 import com.example.tmdb_compose_v2.ui.components.LazyColumnPagable
+import com.example.tmdb_compose_v2.ui.components.LazyRowPagable
 import com.example.tmdb_compose_v2.ui.components.MovieCard
 import com.example.tmdb_compose_v2.ui.components.MovieRow
 import com.example.tmdb_compose_v2.ui.popups.ErrorPopup
@@ -44,7 +46,6 @@ fun HomePage(navController: NavController) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 10.dp)
         ) {
             Column {
                 LazyColumnPagable(
@@ -57,16 +58,22 @@ fun HomePage(navController: NavController) {
                             Text(
                                 text = "Popular Movies", style = TextStyle(
                                     color = Color.Black,
-                                    fontSize = 20.sp,
+                                    fontSize = 22.sp,
                                     fontWeight = FontWeight.Bold
                                 ), modifier = Modifier.padding(10.dp)
                             )
-                            CollectionPagableRow(
+                            LazyRowPagable(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(260.dp),
-                                items = popularMoviesState.movies,
-                                itemComposable = {
+                                currentPage = popularMoviesState.page,
+                                loadPage = { page ->
+                                    viewModel.getPopularMovies(page)
+                                },
+                                totalPages = popularMoviesState.totalPages,
+                                isLoading = loadingPopular
+                            ) {
+                                items(popularMoviesState.movies) {
                                     Box(Modifier.widthIn(max = 170.dp)) {
                                         MovieCard(movie = it, onClick = { movie ->
                                             navController.navigateWithSerializable(
@@ -75,18 +82,12 @@ fun HomePage(navController: NavController) {
                                             )
                                         })
                                     }
-                                },
-                                currentPage = popularMoviesState.page,
-                                loadPage = { page ->
-                                    viewModel.getPopularMovies(page)
-                                },
-                                totalPages = popularMoviesState.totalPages,
-                                isLoading = loadingPopular
-                            )
+                                }
+                            }
                         }
                         Text(
                             text = "Top Rated Movies", style = TextStyle(
-                                color = Color.Black, fontSize = 20.sp, fontWeight = FontWeight.Bold
+                                color = Color.Black, fontSize = 22.sp, fontWeight = FontWeight.Bold
                             ), modifier = Modifier.padding(10.dp)
                         )
                     }
@@ -102,4 +103,10 @@ fun HomePage(navController: NavController) {
             viewModel.clearErrorMessage()
         }
     }
+}
+
+@Preview
+@Composable
+fun HomePagePreview() {
+    HomePage(navController = rememberNavController())
 }

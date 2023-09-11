@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -55,18 +54,24 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MainActivityPreview() {
+    val navController = rememberNavController()
     TMDBComposeTheme {
-        Greeting("Android")
+        NavHost(
+            navController = navController,
+            startDestination = NavigationScreen.Main.route
+        ) {
+            composable(route = NavigationScreen.Main.route) {
+                MainScreen(navController = navController)
+            }
+            composable(route = NavigationScreen.Details.route) {
+                (it.arguments?.getSerializable(MOVIE_ENTITY) as Movie?)?.let { movie ->
+                    DetailsScreen(movie = movie)
+                }
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.tmdb_compose_v2.ui.tabs
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material3.Icon
@@ -12,6 +13,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import kotlinx.coroutines.launch
 
@@ -22,6 +24,7 @@ fun TabHeader(tabs: List<TabItem>, pagerState: PagerState) {
     val scope = rememberCoroutineScope()
 
     TabRow(selectedTabIndex = pagerState.currentPage,
+        containerColor = Color.Black,
         indicator = { tabPositions ->
             Modifier.pagerTabIndicatorOffset(pagerState = pagerState, tabPositions = tabPositions)
         }
@@ -34,13 +37,20 @@ fun TabHeader(tabs: List<TabItem>, pagerState: PagerState) {
             }
             LeadingIconTab(
                 selected = pagerState.currentPage == tabIndex,
+                modifier = Modifier.padding(top = 15.dp),
                 onClick = {
                     scope.launch {
                         pagerState.animateScrollToPage(tabIndex)
                     }
                 },
                 text = { Text(tabItem.title, style = TextStyle(color = selectedColor)) },
-                icon = { Icon(imageVector = tabItem.icon, tint = selectedColor, contentDescription = null) })
+                icon = {
+                    Icon(
+                        imageVector = tabItem.icon,
+                        tint = selectedColor,
+                        contentDescription = null
+                    )
+                })
         }
     }
 }

@@ -22,6 +22,4 @@ class AppModule {
             "favorites.db"
         ).build().dao
     }
-
-
 }

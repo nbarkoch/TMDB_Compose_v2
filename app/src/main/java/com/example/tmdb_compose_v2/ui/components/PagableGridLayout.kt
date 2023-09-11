@@ -22,7 +22,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
 @Composable
-fun <T> CollectionGridPagable(
+fun <T> PagableGridLayout(
     modifier: Modifier = Modifier,
     items: List<T>,
     maxWidth: Dp,

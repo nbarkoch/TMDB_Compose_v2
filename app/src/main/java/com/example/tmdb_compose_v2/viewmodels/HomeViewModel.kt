@@ -34,9 +34,7 @@ class HomeViewModel : ViewModel() {
     val isLoadingTopRated = _isLoadingTopRated.asStateFlow()
 
     init {
-        _topRatedMoviesState.value = MoviesState(1, 0, emptyList())
         getTopRatedMovies()
-        _popularMoviesState.value = MoviesState(1, 0, emptyList())
         getPopularMovies()
     }
 

@@ -141,6 +141,6 @@ fun MovieRow(movie: Movie, onClick: (movie: Movie) -> Unit) {
 
 @Preview
 @Composable
-fun MovieCardPreview() {
-
+fun MovieRowPreview() {
+    MovieRow(movie = moviePreviewMock, onClick = {})
 }
