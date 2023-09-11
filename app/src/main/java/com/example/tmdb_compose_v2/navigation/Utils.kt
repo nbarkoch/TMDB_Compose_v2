@@ -7,8 +7,15 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavDestination
 import java.io.Serializable
 
-fun navigateWithSerializable(
-    navController: NavController,
+/**
+ * an extension method for navController that gets
+ * @param key of the Serializable parameter,
+ * @param serializable the actual value
+ * Since Jet-Pack Compose doesn't have a straight way to pass Serializable arguments
+ * through the NavController, I found the use of this implementation to pass a Serializable
+ * successfully
+ * */
+fun NavController.navigateWithSerializable(
     key: String,
     serializable: Serializable
 ) {
@@ -16,9 +23,9 @@ fun navigateWithSerializable(
         .Builder
         .fromUri(NavDestination.createRoute(NavigationScreen.Details.route).toUri())
         .build()
-    navController.graph.matchDeepLink(routeLink)?.run {
+    this.graph.matchDeepLink(routeLink)?.run {
         val bundle = Bundle()
         bundle.putSerializable(key, serializable)
-        navController.navigate(destination.id, bundle)
+        navigate(destination.id, bundle)
     }
 }

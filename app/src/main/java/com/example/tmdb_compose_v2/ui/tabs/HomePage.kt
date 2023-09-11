@@ -73,8 +73,7 @@ fun HomePage(navController: NavController) {
                                 itemComposable = {
                                     Box(Modifier.widthIn(max = 170.dp)) {
                                         MovieCard(movie = it, onClick = { movie ->
-                                            navigateWithSerializable(
-                                                navController,
+                                            navController.navigateWithSerializable(
                                                 MOVIE_ENTITY,
                                                 movie
                                             )
@@ -97,7 +96,7 @@ fun HomePage(navController: NavController) {
                     }
                     items(topRatedMoviesState.movies) { item ->
                         MovieRow(item, onClick = { movie ->
-                            navigateWithSerializable(navController, MOVIE_ENTITY, movie)
+                            navController.navigateWithSerializable(MOVIE_ENTITY, movie)
                         })
                     }
                 }

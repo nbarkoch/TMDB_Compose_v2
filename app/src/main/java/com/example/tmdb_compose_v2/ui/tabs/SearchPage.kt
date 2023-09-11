@@ -80,8 +80,7 @@ fun SearchPage(navController: NavController) {
                 items = searchResultsState.movies,
                 itemComposable = {
                     MovieCard(movie = it, onClick = { movie ->
-                        navigateWithSerializable(
-                            navController,
+                        navController.navigateWithSerializable(
                             MOVIE_ENTITY,
                             movie
                         )
