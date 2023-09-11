@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -24,22 +25,15 @@ import com.example.tmdb_compose_v2.ui.screens.MainScreen
 import com.example.tmdb_compose_v2.ui.theme.TMDBComposeTheme
 import com.example.tmdb_compose_v2.viewmodels.DetailsViewModel
 import com.example.tmdb_compose_v2.viewmodels.FavoritesViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    private val db by lazy {
-        Room.databaseBuilder(
-            applicationContext,
-            FavoriteMovieDatabase::class.java,
-            "favorites.db"
-        ).build()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lateinit var navController: NavHostController
-        val detailsViewModel = DetailsViewModel(db.dao)
-        val favoriteViewModel = FavoritesViewModel(db.dao)
 
         setContent {
             TMDBComposeTheme {
@@ -57,7 +51,7 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = NavigationScreen.Details.route) {
                             (it.arguments?.getSerializable(MOVIE_ENTITY) as Movie?)?.let { movie ->
-                                DetailsScreen(movie = movie, viewModel = detailsViewModel)
+                                DetailsScreen(movie = movie)
                             }
                         }
                     }

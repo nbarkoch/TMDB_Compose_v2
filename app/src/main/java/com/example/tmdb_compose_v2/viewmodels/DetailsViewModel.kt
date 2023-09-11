@@ -6,10 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tmdb_compose_v2.model.Movie
 import com.example.tmdb_compose_v2.storage.FavoriteMovieDao
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
-class DetailsViewModel(
+@HiltViewModel
+class DetailsViewModel @Inject constructor(
     private val favoriteMovieDao: FavoriteMovieDao
 ): ViewModel() {
 

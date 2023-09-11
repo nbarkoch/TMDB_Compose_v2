@@ -35,6 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberAsyncImagePainter
 import com.example.tmdb_compose_v2.api.MoviesRetrofit.IMAGE_BASE_URL
 import com.example.tmdb_compose_v2.model.Movie
@@ -42,8 +43,9 @@ import com.example.tmdb_compose_v2.viewmodels.DetailsViewModel
 
 @Composable
 fun DetailsScreen(
-    movie: Movie, viewModel: DetailsViewModel
+    movie: Movie
 ) {
+    val viewModel = hiltViewModel<DetailsViewModel>()
     LaunchedEffect(movie) {
         viewModel.checkIfIsFavorite(movie)
     }
