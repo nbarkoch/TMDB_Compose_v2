@@ -1,6 +1,5 @@
 package com.example.tmdb_compose_v2.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -24,7 +23,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberAsyncImagePainter
 import com.example.tmdb_compose_v2.api.MoviesRetrofit
 import com.example.tmdb_compose_v2.model.Movie
 
@@ -47,8 +45,8 @@ fun MovieCard(movie: Movie, onClick: (movie: Movie) -> Unit) {
             ),
             shape = RoundedCornerShape(10.dp),
         ) {
-            Image(
-                painter = rememberAsyncImagePainter("${MoviesRetrofit.IMAGE_BASE_URL}${movie.posterPath}"),
+            CachedImage(
+                url = "${MoviesRetrofit.IMAGE_BASE_URL}${movie.posterPath}",
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

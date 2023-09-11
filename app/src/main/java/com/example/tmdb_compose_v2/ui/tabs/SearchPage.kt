@@ -32,6 +32,7 @@ import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
 import com.example.tmdb_compose_v2.navigation.navigateWithSerializable
 import com.example.tmdb_compose_v2.ui.components.CollectionGridPagable
 import com.example.tmdb_compose_v2.ui.components.MovieCard
+import com.example.tmdb_compose_v2.ui.popups.ErrorPopup
 import com.example.tmdb_compose_v2.viewmodels.SearchViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -93,6 +94,9 @@ fun SearchPage(navController: NavController) {
                     viewModel.searchForMovie(searchText, it)
                 }
             )
+        }
+        ErrorPopup(message = viewModel.errorMessage.value) {
+            viewModel.clearErrorMessage()
         }
     }
     LaunchedEffect(searchText) {

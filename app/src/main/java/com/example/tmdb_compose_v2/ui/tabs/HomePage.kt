@@ -26,6 +26,7 @@ import com.example.tmdb_compose_v2.ui.components.CollectionPagableRow
 import com.example.tmdb_compose_v2.ui.components.LazyColumnPagable
 import com.example.tmdb_compose_v2.ui.components.MovieCard
 import com.example.tmdb_compose_v2.ui.components.MovieRow
+import com.example.tmdb_compose_v2.ui.popups.ErrorPopup
 import com.example.tmdb_compose_v2.viewmodels.HomeViewModel
 
 @Composable
@@ -96,6 +97,9 @@ fun HomePage(navController: NavController) {
                     }
                 }
             }
+        }
+        ErrorPopup(message = viewModel.errorMessage.value) {
+            viewModel.clearErrorMessage()
         }
     }
 }

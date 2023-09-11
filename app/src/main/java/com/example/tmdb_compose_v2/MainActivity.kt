@@ -4,29 +4,23 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.room.Room
 import com.example.tmdb_compose_v2.model.Movie
 import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
 import com.example.tmdb_compose_v2.navigation.NavigationScreen
-import com.example.tmdb_compose_v2.storage.FavoriteMovieDatabase
 import com.example.tmdb_compose_v2.ui.screens.DetailsScreen
 import com.example.tmdb_compose_v2.ui.screens.MainScreen
 import com.example.tmdb_compose_v2.ui.theme.TMDBComposeTheme
-import com.example.tmdb_compose_v2.viewmodels.DetailsViewModel
-import com.example.tmdb_compose_v2.viewmodels.FavoritesViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -40,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 navController = rememberNavController()
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = Color.White
                 ) {
                     NavHost(
                         navController = navController,

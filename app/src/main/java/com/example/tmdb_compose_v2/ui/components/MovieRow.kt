@@ -1,6 +1,5 @@
 package com.example.tmdb_compose_v2.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +31,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.rememberAsyncImagePainter
 import com.example.tmdb_compose_v2.api.MoviesRetrofit.IMAGE_BASE_URL
 import com.example.tmdb_compose_v2.model.Movie
 
@@ -101,8 +99,8 @@ fun MovieRow(movie: Movie, onClick: (movie: Movie) -> Unit) {
                     }
 
                 }
-                Image(
-                    painter = rememberAsyncImagePainter("$IMAGE_BASE_URL${movie.posterPath}"),
+                CachedImage(
+                    url = "$IMAGE_BASE_URL${movie.posterPath}",
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier

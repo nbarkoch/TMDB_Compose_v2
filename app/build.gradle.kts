@@ -9,7 +9,6 @@ plugins {
 android {
     namespace = "com.example.tmdb_compose_v2"
     compileSdk = 34
-
     defaultConfig {
         applicationId = "com.example.tmdb_compose_v2"
         minSdk = 24
@@ -85,7 +84,6 @@ dependencies {
 
     // image caching
     implementation("io.coil-kt:coil-compose:2.0.0-rc01")
-    implementation("media.kamel:kamel-image:0.7.3")
 
     // viewmodels
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-alpha02")
