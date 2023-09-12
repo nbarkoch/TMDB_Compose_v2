@@ -1,6 +1,5 @@
 package com.example.tmdb_compose_v2.ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,9 +35,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.rememberAsyncImagePainter
-import com.example.tmdb_compose_v2.model.api.MoviesRetrofit.IMAGE_BASE_URL
 import com.example.tmdb_compose_v2.model.Movie
+import com.example.tmdb_compose_v2.model.api.MoviesRetrofit.IMAGE_BASE_URL
+import com.example.tmdb_compose_v2.ui.components.CachedImage
 import com.example.tmdb_compose_v2.ui.components.moviePreviewMock
 import com.example.tmdb_compose_v2.viewmodels.DetailsViewModel
 
@@ -74,8 +73,8 @@ fun DetailsScreen(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Image(
-                painter = rememberAsyncImagePainter("$IMAGE_BASE_URL${movie.posterPath}"),
+            CachedImage(
+                url = "$IMAGE_BASE_URL${movie.posterPath}",
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

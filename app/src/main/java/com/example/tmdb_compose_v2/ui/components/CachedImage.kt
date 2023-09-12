@@ -26,9 +26,13 @@ import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.net.URL
 
+/**
+ * a class that that manage the image caching, using sharedPreferences
+ * */
 class ImageCacheManager(context: Context) {
 
     companion object {
+        // 1 day expiration
         const val EXPIRATION_TIME = 24 * 60 * 60 * 1000
     }
 
@@ -100,7 +104,8 @@ class ImageCacheManager(context: Context) {
                 downloadedBitmap
             }
         } catch (e: Exception) {
-            // any exceptions will return null
+            // any exceptions will return null,
+            // we don't want to make our app crash because of network / server errors
             e.printStackTrace()
             return null
         }
@@ -129,7 +134,7 @@ class ImageCacheManager(context: Context) {
  * Well-known libraries such as Coil that use Compose apparently don't support it explicitly.
  *
  * We would of course prefer to use a library that is maintained and that works more efficiently,
- * but within the framework of this project we were required to do a certain thing, so I did it this way
+ * but within the requirements of this project we were required to do a certain thing, so I did it this way
  * */
 @Composable
 fun CachedImage(

@@ -86,9 +86,13 @@ class HomeViewModel : ViewModel() {
             }
             if (response.isSuccessful) {
                 response.body()?.let { body ->
-                    val clonedList = _topRatedMoviesState.value.movies.toMutableList()
-                    clonedList.addAll(body.results)
-                    _topRatedMoviesState.value = MoviesState(page, body.totalPages, clonedList)
+                    if (page > 1) {
+                        val clonedList = _topRatedMoviesState.value.movies.toMutableList()
+                        clonedList.addAll(body.results)
+                        _topRatedMoviesState.value = MoviesState(page, body.totalPages, clonedList)
+                    } else {
+                        _topRatedMoviesState.value = MoviesState(page, body.totalPages, body.results)
+                    }
                 }
             } else {
                 _errorMessage.value = "Unexpected Error Occurred\nTry again later.."
@@ -97,4 +101,10 @@ class HomeViewModel : ViewModel() {
         }
     }
 
+    fun refreshPage() {
+        _popularMoviesState.value = MoviesState(1, 0, emptyList())
+        _topRatedMoviesState.value = MoviesState(1, 0, emptyList())
+        getTopRatedMovies()
+        getPopularMovies()
+    }
 }

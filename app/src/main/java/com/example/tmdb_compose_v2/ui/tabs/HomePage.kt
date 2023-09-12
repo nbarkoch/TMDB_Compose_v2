@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -22,12 +23,12 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.tmdb_compose_v2.ui.navigation.MOVIE_ENTITY
-import com.example.tmdb_compose_v2.ui.navigation.navigateWithSerializable
 import com.example.tmdb_compose_v2.ui.components.MovieCard
 import com.example.tmdb_compose_v2.ui.components.MovieRow
 import com.example.tmdb_compose_v2.ui.components.PageableLazyColumn
 import com.example.tmdb_compose_v2.ui.components.PageableLazyRow
+import com.example.tmdb_compose_v2.ui.navigation.MOVIE_ENTITY
+import com.example.tmdb_compose_v2.ui.navigation.navigateWithSerializable
 import com.example.tmdb_compose_v2.ui.popups.ErrorPopup
 import com.example.tmdb_compose_v2.viewmodels.HomeViewModel
 
@@ -40,6 +41,14 @@ fun HomePage(navController: NavController) {
 
     val topRatedMoviesState by viewModel.topRatedMoviesState.collectAsState()
     val loadingTopRated by viewModel.isLoadingTopRated.collectAsState()
+
+    LaunchedEffect(Unit) {
+        // to prevent from too much data in the app,
+        // we reinit this page's calls if we recompose it.
+        if (popularMoviesState.movies.size + topRatedMoviesState.movies.size > 300) {
+            viewModel.refreshPage()
+        }
+    }
 
     Box(modifier = Modifier.fillMaxSize()) {
 
