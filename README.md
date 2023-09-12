@@ -23,8 +23,10 @@ saving state of scroll on configuration changes.
 ### Details Screen 
 a simple screen contains the movie image, title, and overview
 has a "add to favorite button" that interact with the local storage to save or remove favorite movies.  
+
+
   
-Architecture:
+## Architecture:
 
 I used a Single Activty Application approach, using Jet-Pack Compose only.  
 MainActivity contains the navigator  
