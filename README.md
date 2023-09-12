@@ -33,14 +33,15 @@ SearchPage -> SearchViewModel: contains the searchMoviesState, and the searchFie
 FavoritePage -> FavoriteViewModelL contains refernce to DAO, to get all the favorite movies from the user.
 DetailsScreen -> DetailsViewModelL contains refernce to DAO, to check if movie is favorite or not, and to set or remove from db.
 
- >                                HomePage -  viewmodel(API)
- >                              /  
- >                MainScreen --|--SearchPage -  viewmodel(API)
- >              /               \ 
- > MainActivty |                  FavoritePage -  viewmodel(DAO)
- >              \ 
- >                DetailsScreen -  viewmodel(DAO)
-         
+ ```
+                                 HomePage -  viewmodel(API)
+                               /  
+                 MainScreen --|--SearchPage -  viewmodel(API)
+               /               \ 
+  MainActivty |                  FavoritePage -  viewmodel(DAO)
+               \ 
+                 DetailsScreen -  viewmodel(DAO)
+  ```       
 
 ## Server Requests: 
 Retrofit - easier to implement the REST API requests.
