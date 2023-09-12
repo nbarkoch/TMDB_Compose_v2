@@ -1,7 +1,8 @@
 # TMDB_Compose_v2
 
-The Project containes 3 tabs and a details screen
-each tab is an actual page.
+The Project containes 3 tabs and a details screen.  
+
+each tab is an actual page.  
 
 ### first tab - Home
 including most popular and top-rated movies from the server.
