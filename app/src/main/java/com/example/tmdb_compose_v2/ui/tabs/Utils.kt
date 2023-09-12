@@ -1,5 +1,11 @@
 package com.example.tmdb_compose_v2.ui.tabs
 
+
+
+/**
+ * Pager's pagerTabIndicatorOffset doesn't work with androidx.compose.material3
+ * https://github.com/google/accompanist/issues/1076
+ * */
 /*
  * Copyright 2021 The Android Open Source Project
  *
