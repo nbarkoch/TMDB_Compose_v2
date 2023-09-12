@@ -69,8 +69,6 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    // tabs dependencies
-    implementation("com.google.accompanist:accompanist-pager:0.23.0")
 
     // room database dependencies
     implementation ("androidx.room:room-runtime:2.5.2")
