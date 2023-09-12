@@ -22,7 +22,7 @@ saving state of scroll on configuration changes.
 
 Architecture:
 
-I used a Single Activty Application approach, using Jet-Pack Compose only.
+I used a Single Activty Application approach, using Jet-Pack Compose only.  
 MainActivity contains the navigator  
 the navigator contains the MainScreen and the DetailsScreen  
 MainScreen contains the 3 pages, (Home, Search, Favorite)  
@@ -51,8 +51,8 @@ data class for Movie, which is Serializable.
 Room Database - most of the fastest ways to get the data.  
 
 ## Other stuff:
-1. Making a Composable that support automatic pagination by scroll.  
-2. Dependancy Injection - helped with providing the instance of the Dao, and for saving the viewmodel instances wuth the MainActivty lifecycle  
+1. Making a generic Composable that support automatic pagination by scroll.  
+2. Dependancy Injection (Dagger Hilt) - helped with providing the instance of the Dao, and for saving the viewmodel instances wuth the MainActivty lifecycle  
 3. Implement a function for passing Serializables using the NavController  
 
 
