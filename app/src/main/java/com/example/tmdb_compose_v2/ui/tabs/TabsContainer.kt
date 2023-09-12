@@ -25,9 +25,6 @@ fun TabHeader(tabs: List<TabItem>, pagerState: PagerState) {
 
     TabRow(selectedTabIndex = pagerState.currentPage,
         containerColor = Color.Black,
-        indicator = { tabPositions ->
-            Modifier.pagerTabIndicatorOffset(pagerState = pagerState, tabPositions = tabPositions)
-        }
     ) {
         tabs.forEachIndexed { tabIndex, tabItem ->
             val selectedColor = if (pagerState.currentPage == tabIndex) {
@@ -54,6 +51,7 @@ fun TabHeader(tabs: List<TabItem>, pagerState: PagerState) {
         }
     }
 }
+
 
 
 @OptIn(ExperimentalFoundationApi::class)
