@@ -85,9 +85,6 @@ dependencies {
     // image caching
     implementation("io.coil-kt:coil-compose:2.0.0-rc01")
 
-    // viewmodels
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0-alpha02")
-
     // navigation
     implementation("androidx.navigation:navigation-compose:2.7.2")
 
