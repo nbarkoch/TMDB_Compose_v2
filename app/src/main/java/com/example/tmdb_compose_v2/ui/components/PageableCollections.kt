@@ -38,7 +38,7 @@ private fun LazyListState.didReachEnd(): Boolean {
 }
 
 @Composable
-fun LazyRowPagable(
+fun PageableLazyRow(
     modifier: Modifier = Modifier,
     currentPage: Int, loadPage: (page: Int) -> Unit, totalPages: Int, isLoading: Boolean,
     listLazyScope: LazyListScope.() -> Unit
@@ -66,6 +66,9 @@ fun LazyRowPagable(
 
     LaunchedEffect(listState.didReachEnd()) {
         if (!isLoading && currentPage <= totalPages) {
+            // make sure that we aren't already loading new page,
+            // by using mutex, and check state of isLoading,
+            // and that there are more pages left to fetch
             paginationMutex.withLock {
                 loadPage(currentPage + 1)
             }
@@ -75,16 +78,17 @@ fun LazyRowPagable(
 
 
 @Composable
-fun LazyColumnPagable(
+fun PageableLazyColumn(
     modifier: Modifier = Modifier,
     currentPage: Int, loadPage: (page: Int) -> Unit, totalPages: Int, isLoading: Boolean,
-    listLazyScope:  LazyListScope.() -> Unit
+    listLazyScope: LazyListScope.() -> Unit
 ) {
     val listState = rememberLazyListState()
     val paginationMutex = remember { Mutex() }
     LazyColumn(
         state = listState,
-        modifier = modifier) {
+        modifier = modifier
+    ) {
         listLazyScope()
         if (isLoading) {
             item {
@@ -102,6 +106,9 @@ fun LazyColumnPagable(
 
     LaunchedEffect(listState.didReachEnd()) {
         if (!isLoading && currentPage <= totalPages) {
+            // make sure that we aren't already loading new page,
+            // by using mutex, and check state of isLoading,
+            // and that there are more pages left to fetch
             paginationMutex.withLock {
                 loadPage(currentPage + 1)
             }

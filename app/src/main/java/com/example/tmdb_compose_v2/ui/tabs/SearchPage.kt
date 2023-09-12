@@ -31,7 +31,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
 import com.example.tmdb_compose_v2.navigation.navigateWithSerializable
 import com.example.tmdb_compose_v2.ui.components.MovieCard
-import com.example.tmdb_compose_v2.ui.components.PagableGridLayout
+import com.example.tmdb_compose_v2.ui.components.PageableGridLayout
 import com.example.tmdb_compose_v2.ui.popups.ErrorPopup
 import com.example.tmdb_compose_v2.viewmodels.SearchViewModel
 
@@ -75,7 +75,7 @@ fun SearchPage(navController: NavController) {
                     .clip(RoundedCornerShape(20.dp)), placeholder = {
                     Text("Search For Movies")
                 })
-            PagableGridLayout(
+            PageableGridLayout(
                 modifier = Modifier.fillMaxSize(),
                 maxWidth = 150.dp,
                 items = searchResultsState.movies,

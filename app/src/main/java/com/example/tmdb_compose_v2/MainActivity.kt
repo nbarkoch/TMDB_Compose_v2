@@ -68,6 +68,8 @@ fun MainActivityPreview() {
                 MainScreen(navController = navController)
             }
             composable(route = NavigationScreen.Details.route) {
+                // we use the deprecated method getSerializable
+                // since we want to support Sdk 24 and higher
                 (it.arguments?.getSerializable(MOVIE_ENTITY) as Movie?)?.let { movie ->
                     DetailsScreen(movie = movie)
                 }

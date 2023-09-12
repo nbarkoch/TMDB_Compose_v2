@@ -24,10 +24,10 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
 import com.example.tmdb_compose_v2.navigation.navigateWithSerializable
-import com.example.tmdb_compose_v2.ui.components.LazyColumnPagable
-import com.example.tmdb_compose_v2.ui.components.LazyRowPagable
 import com.example.tmdb_compose_v2.ui.components.MovieCard
 import com.example.tmdb_compose_v2.ui.components.MovieRow
+import com.example.tmdb_compose_v2.ui.components.PageableLazyColumn
+import com.example.tmdb_compose_v2.ui.components.PageableLazyRow
 import com.example.tmdb_compose_v2.ui.popups.ErrorPopup
 import com.example.tmdb_compose_v2.viewmodels.HomeViewModel
 
@@ -48,7 +48,7 @@ fun HomePage(navController: NavController) {
                 .fillMaxWidth()
         ) {
             Column {
-                LazyColumnPagable(
+                PageableLazyColumn(
                     currentPage = topRatedMoviesState.page, loadPage = { page ->
                         viewModel.getTopRatedMovies(page)
                     }, totalPages = topRatedMoviesState.totalPages, isLoading = loadingTopRated
@@ -62,7 +62,7 @@ fun HomePage(navController: NavController) {
                                     fontWeight = FontWeight.Bold
                                 ), modifier = Modifier.padding(10.dp)
                             )
-                            LazyRowPagable(
+                            PageableLazyRow(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .height(260.dp),
