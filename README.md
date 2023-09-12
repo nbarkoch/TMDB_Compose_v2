@@ -23,15 +23,15 @@ saving state of scroll on configuration changes.
 Architecture:
 
 I used a Single Activty Application approach, using Jet-Pack Compose only.
-MainActivity contains the navigator
-the navigator contains the MainScreen and the DetailsScreen
-MainScreen contains the 3 pages, (Home, Search, Favorite)
-DetailsScreen is relevant only with a movie argument.
-each Screen/Page has its own viewModel:
-HomePage -> HomeViewModel: contains the popularMoviesState, and topRatedMoviesState, also loading indications.
-SearchPage -> SearchViewModel: contains the searchMoviesState, and the searchField state.
-FavoritePage -> FavoriteViewModelL contains refernce to DAO, to get all the favorite movies from the user.
-DetailsScreen -> DetailsViewModelL contains refernce to DAO, to check if movie is favorite or not, and to set or remove from db.
+MainActivity contains the navigator  
+the navigator contains the MainScreen and the DetailsScreen  
+MainScreen contains the 3 pages, (Home, Search, Favorite)  
+DetailsScreen is relevant only with a movie argument.  
+each Screen/Page has its own viewModel:  
+HomePage -> HomeViewModel: contains the popularMoviesState, and topRatedMoviesState, also loading indications.  
+SearchPage -> SearchViewModel: contains the searchMoviesState, and the searchField state.  
+FavoritePage -> FavoriteViewModelL contains refernce to DAO, to get all the favorite movies from the user.  
+DetailsScreen -> DetailsViewModelL contains refernce to DAO, to check if movie is favorite or not, and to set or remove from db.  
 
  ```
                                  HomePage -  viewmodel(API)
@@ -44,16 +44,16 @@ DetailsScreen -> DetailsViewModelL contains refernce to DAO, to check if movie i
   ```       
 
 ## Server Requests: 
-Retrofit - easier to implement the REST API requests.
-data class for Movie, which is Serializable.
+Retrofit - easier to implement the REST API requests.  
+data class for Movie, which is Serializable.  
 
-## Favorite Movies Storage:
-Room Database - most of the fastest ways to get the data.
+## Favorite Movies Storage:  
+Room Database - most of the fastest ways to get the data.  
 
 ## Other stuff:
-1. Making a Composable that support automatic pagination by scroll.
-2. Dependancy Injection - helped with providing the instance of the Dao, and for saving the viewmodel instances wuth the MainActivty lifecycle
-3. Implement a function for passing Serializables using the NavController
+1. Making a Composable that support automatic pagination by scroll.  
+2. Dependancy Injection - helped with providing the instance of the Dao, and for saving the viewmodel instances wuth the MainActivty lifecycle  
+3. Implement a function for passing Serializables using the NavController  
 
 
 
