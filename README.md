@@ -3,23 +3,27 @@
 The Project containes 3 tabs and a details screen
 each tab is an actual page.
 
-## first tab - Home
+### first tab - Home
 including most popular and top-rated movies from the server.
 support pagination for both, the horizontal and the vertical.
 saving state of scroll on configuration changes.
 > clicking on any of the movies will navigate to details screen, with more detail about the selected movie.
 
-## second tab - Search
+### second tab - Search
 a textfiled that auto-fetch relevant movies with the corresponding text. display as grid.
 has cancel button, support pagination.
 saving state of scroll on configuration changes.
 > clicking on any of the movies will navigate to details screen, with more detail about the selected movie.
 
-## third tab - Favorites
+### third tab - Favorites
 a vertical list of movies which the user has selected as his favorite.
 saving state of scroll on configuration changes.
 > clicking on any of the movies will navigate to details screen, with more detail about the selected movie.
 
+### Details Screen 
+a simple screen contains the movie image, title, and overview
+has a "add to favorite button" that interact with the local storage to save or remove favorite movies.  
+  
 Architecture:
 
 I used a Single Activty Application approach, using Jet-Pack Compose only.  
