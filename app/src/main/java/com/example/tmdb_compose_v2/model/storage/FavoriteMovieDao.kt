@@ -1,4 +1,4 @@
-package com.example.tmdb_compose_v2.storage
+package com.example.tmdb_compose_v2.model.storage
 
 import androidx.room.Dao
 import androidx.room.Delete

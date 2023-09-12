@@ -14,8 +14,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tmdb_compose_v2.model.Movie
-import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
-import com.example.tmdb_compose_v2.navigation.NavigationScreen
+import com.example.tmdb_compose_v2.ui.navigation.MOVIE_ENTITY
+import com.example.tmdb_compose_v2.ui.navigation.NavigationScreen
 import com.example.tmdb_compose_v2.ui.screens.DetailsScreen
 import com.example.tmdb_compose_v2.ui.screens.MainScreen
 import com.example.tmdb_compose_v2.ui.theme.TMDBComposeTheme

@@ -2,8 +2,8 @@ package com.example.tmdb_compose_v2.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.tmdb_compose_v2.storage.FavoriteMovieDao
-import com.example.tmdb_compose_v2.storage.FavoriteMovieDatabase
+import com.example.tmdb_compose_v2.model.storage.FavoriteMovieDao
+import com.example.tmdb_compose_v2.model.storage.FavoriteMovieDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

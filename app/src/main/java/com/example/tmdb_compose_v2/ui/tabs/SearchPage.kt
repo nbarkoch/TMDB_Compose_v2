@@ -28,8 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.tmdb_compose_v2.navigation.MOVIE_ENTITY
-import com.example.tmdb_compose_v2.navigation.navigateWithSerializable
+import com.example.tmdb_compose_v2.ui.navigation.MOVIE_ENTITY
+import com.example.tmdb_compose_v2.ui.navigation.navigateWithSerializable
 import com.example.tmdb_compose_v2.ui.components.MovieCard
 import com.example.tmdb_compose_v2.ui.components.PageableGridLayout
 import com.example.tmdb_compose_v2.ui.popups.ErrorPopup

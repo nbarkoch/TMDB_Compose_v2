@@ -3,7 +3,7 @@ package com.example.tmdb_compose_v2.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.example.tmdb_compose_v2.storage.IntListConverter
+import com.example.tmdb_compose_v2.model.storage.IntListConverter
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 

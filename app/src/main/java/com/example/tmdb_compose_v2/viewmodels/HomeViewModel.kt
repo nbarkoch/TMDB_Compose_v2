@@ -4,8 +4,7 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.tmdb_compose_v2.api.MoviesRetrofit
-import com.example.tmdb_compose_v2.model.MoviesState
+import com.example.tmdb_compose_v2.model.api.MoviesRetrofit
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch

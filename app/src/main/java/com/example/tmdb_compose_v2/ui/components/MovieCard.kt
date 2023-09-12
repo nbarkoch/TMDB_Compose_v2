@@ -24,7 +24,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.tmdb_compose_v2.api.MoviesRetrofit
+import com.example.tmdb_compose_v2.model.api.MoviesRetrofit
 import com.example.tmdb_compose_v2.model.Movie
 
 

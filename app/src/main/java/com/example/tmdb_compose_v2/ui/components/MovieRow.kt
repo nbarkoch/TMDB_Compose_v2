@@ -31,7 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.tmdb_compose_v2.api.MoviesRetrofit.IMAGE_BASE_URL
+import com.example.tmdb_compose_v2.model.api.MoviesRetrofit.IMAGE_BASE_URL
 import com.example.tmdb_compose_v2.model.Movie
 
 @Composable

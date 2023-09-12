@@ -3,7 +3,7 @@ package com.example.tmdb_compose_v2.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.tmdb_compose_v2.model.Movie
-import com.example.tmdb_compose_v2.storage.FavoriteMovieDao
+import com.example.tmdb_compose_v2.model.storage.FavoriteMovieDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

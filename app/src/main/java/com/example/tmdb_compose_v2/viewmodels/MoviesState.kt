@@ -1,4 +1,6 @@
-package com.example.tmdb_compose_v2.model
+package com.example.tmdb_compose_v2.viewmodels
+
+import com.example.tmdb_compose_v2.model.Movie
 
 data class MoviesState(
     val page: Int,

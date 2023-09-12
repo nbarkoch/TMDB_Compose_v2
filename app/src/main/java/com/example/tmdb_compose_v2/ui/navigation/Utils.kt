@@ -1,4 +1,4 @@
-package com.example.tmdb_compose_v2.navigation
+package com.example.tmdb_compose_v2.ui.navigation
 
 import android.os.Bundle
 import androidx.core.net.toUri

@@ -1,4 +1,4 @@
-package com.example.tmdb_compose_v2.api
+package com.example.tmdb_compose_v2.model.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
